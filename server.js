@@ -11,6 +11,7 @@ import path from 'path'
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 dotenv.config()
 
@@ -20,7 +21,7 @@ app.use('/api/v1/auth',authRoute)
 
 const port = process.env.PORT || 5000
 
-app.use(cors())
+
 app.use(errorHandlerMiddleware)
 
 
