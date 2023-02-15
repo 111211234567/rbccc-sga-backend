@@ -6,6 +6,7 @@ import 'express-async-errors';
 import connectDB from './db.js'
 import errorHandlerMiddleware from './error/error-handler.js'
 import authRoute from './routes/authRoute.js';
+import newsRoute from './routes/newsRoute.js'
 
 import path from 'path'
 
@@ -16,7 +17,7 @@ app.use(express.json())
 dotenv.config()
 
 app.use('/api/v1/auth',authRoute)
-
+app.use('/api/v1/news',newsRoute)
 
 
 const port = process.env.PORT || 5000
