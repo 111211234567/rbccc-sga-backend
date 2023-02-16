@@ -7,17 +7,22 @@ import connectDB from './db.js'
 import errorHandlerMiddleware from './error/error-handler.js'
 import authRoute from './routes/authRoute.js';
 import newsRoute from './routes/newsRoute.js'
+import router from './controller/CalendarController'
 
 import path from 'path'
+
+
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 dotenv.config()
+app.use(bodyParser.json())
 
 app.use('/api/v1/auth',authRoute)
 app.use('/api/v1/news',newsRoute)
+app.use("/api/calendar",router)
 
 
 const port = process.env.PORT || 5000
