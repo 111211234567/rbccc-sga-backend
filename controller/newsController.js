@@ -4,16 +4,18 @@ import User from "../model/User.js";
 import News from "../model/News.js";
 
 const getnews = async (req, res) => {
-    const allNews = await News.find({})
+    const allNews = await News.find({}).populate({
+        path:'author'
+    })
     res.status(StatusCodes.OK).json({ news: allNews })
 }
 
 const postNews = async (req, res) => {
-    const { userId, url, description, date,title } = req.body
+    const { userId, img, description, date,title } = req.body
     const uncreatedNews = {
         author: userId,
         description: description,
-        url: url,
+        img: img,
         date: date,
         title:title
     }
@@ -30,10 +32,10 @@ const deleteNews = async (req, res) => {
 
 const editeNews = async (req, res) => {
     const { newsId } = req.params
-    const { url, description, date } = req.body
+    const { img, description, date } = req.body
     const news = await News.findById(newsId)
     news.description=description
-    news.url=url
+    news.img=img
     news.date=date
     news.title=title
     await news.save()

@@ -17,9 +17,11 @@ import bodyParser from 'body-parser';
 const app = express()
 
 app.use(cors())
-app.use(express.json())
+// app.use(express.json())
 dotenv.config()
-app.use(bodyParser.json())
+app.use(express.json({limit: '50mb'}));
+app.use(bodyParser.json({ limit: "200mb" }));
+app.use(bodyParser.urlencoded({ limit: "200mb",  extended: true, parameterLimit: 1000000 }));
 
 
 app.use('/api/v1/auth',authRoute)

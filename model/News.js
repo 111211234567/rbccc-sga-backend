@@ -10,14 +10,14 @@ const NewsSchema = new Schema({
         type: String,
         trim: true
     },
-    url: {
-        type: String,
-        trim: true
-    },
     description: {
         type: String,
         trim: true,
         minlength: [20, "please provide more than 10 words"]
+    },
+    img: {
+        type: String,
+        trim: true
     },
     date: {
         type: String,
