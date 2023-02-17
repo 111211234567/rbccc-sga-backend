@@ -6,19 +6,23 @@ const NewsSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    url: {
+    title: {
         type: String,
         trim: true
     },
     description: {
         type: String,
         trim: true,
-        minlength:[20,"please provide more than 10 words"]
+        minlength: [20, "please provide more than 10 words"]
     },
-    date:{
-        type:String,
-        trim:true
+    img: {
+        type: String,
+        trim: true
+    },
+    date: {
+        type: String,
+        trim: true
     }
 })
 
-export default mongoose.model('News',NewsSchema)
+export default mongoose.model('News', NewsSchema)
