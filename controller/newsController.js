@@ -9,12 +9,13 @@ const getnews = async (req, res) => {
 }
 
 const postNews = async (req, res) => {
-    const { userId, url, description, date } = req.body
+    const { userId, url, description, date,title } = req.body
     const uncreatedNews = {
         author: userId,
         description: description,
         url: url,
-        date: date
+        date: date,
+        title:title
     }
     const news = await News.create(uncreatedNews)
     await news.save()
@@ -34,6 +35,7 @@ const editeNews = async (req, res) => {
     news.description=description
     news.url=url
     news.date=date
+    news.title=title
     await news.save()
     res.status(StatusCodes.OK).json({ news: news })
 }
