@@ -2,12 +2,13 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import 'express-async-errors';
+import bodyParser from 'body-parser'
 
 import connectDB from './db.js'
 import errorHandlerMiddleware from './error/error-handler.js'
 import authRoute from './routes/authRoute.js';
 import newsRoute from './routes/newsRoute.js'
-import router from './controller/CalendarController'
+import router from './controller/CalendarController.js'
 
 import path from 'path'
 
