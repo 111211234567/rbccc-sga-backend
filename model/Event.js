@@ -5,6 +5,5 @@ const EventSchema=mongoose.Schema({
     end:Date,
     title:String
 })
-const Event=mongoose.model('Event',EventSchema)
 
-export default Event
+export default mongoose.model('Event', EventSchema)
