@@ -11,7 +11,6 @@ import newsRoute from './routes/newsRoute.js'
 import router from './controller/CalendarController.js'
 
 import path from 'path'
-import bodyParser from 'body-parser';
 
 
 
