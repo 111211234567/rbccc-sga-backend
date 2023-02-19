@@ -28,8 +28,13 @@ const getAnouncement = async (req, res) => {
 }
 const getOneAnouncement = async (req, res) => {
     const { AnouncementId } = req.params
-    const Anouncement = await Anouncement.findById(AnouncementId)
-    res.status(StatusCodes.OK).json({ Anouncement: Anouncement })
+    const anouncement= await Anouncement.findById(AnouncementId).populate({
+        path:'author',
+        populate:{
+            path:'headPhoto'
+        }
+    })
+    res.status(StatusCodes.OK).json({ anouncement:anouncement })
 }
 
 const deleteAnouncement = async (req, res) => {
