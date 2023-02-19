@@ -38,6 +38,10 @@ const UserSchema = new Schema({
         trim:true,
         default:"rbc student"
     },
+    headPhoto:{
+        type:Schema.Types.ObjectId,
+        ref:"Image"
+    }
 
 })
 

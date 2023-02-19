@@ -9,6 +9,8 @@ import errorHandlerMiddleware from './error/error-handler.js'
 import authRoute from './routes/authRoute.js';
 import newsRoute from './routes/newsRoute.js'
 import router from './controller/CalendarController.js'
+import AnouncementRoute from './routes/anouncementRoute.js'
+import userRoute from './routes/userRoute.js'
 
 import path from 'path'
 
@@ -27,7 +29,8 @@ app.use(bodyParser.urlencoded({ limit: "200mb",  extended: true, parameterLimit:
 app.use('/api/v1/auth',authRoute)
 app.use('/api/v1/news',newsRoute)
 app.use("/api/calendar",router)
-
+app.use('/api/v1/anouncement',AnouncementRoute)
+app.use('/api/v1/user',userRoute)
 
 const port = process.env.PORT || 5000
 
