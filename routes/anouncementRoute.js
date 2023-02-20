@@ -5,7 +5,7 @@ const router=express.Router()
 
 router.route('/').post(postAnouncement).get(getAnouncement)
 
-router.route('/edite').patch(editeAnouncemnt).delete(deleteAnouncement)
+router.route('/edite/:AnouncementId').patch(editeAnouncemnt).delete(deleteAnouncement)
 
 router.route('/get/:AnouncementId').get(getOneAnouncement)
 
