@@ -12,6 +12,7 @@ import router from './controller/CalendarController.js'
 import AnouncementRoute from './routes/anouncementRoute.js'
 import userRoute from './routes/userRoute.js'
 import agendaRoute from './routes/agendaRoute.js'
+import adminRoute from './routes/adminRoute.js'
 
 import path from 'path'
 
@@ -33,6 +34,7 @@ app.use("/api/calendar",router)
 app.use('/api/v1/anouncement',AnouncementRoute)
 app.use('/api/v1/user',userRoute)
 app.use('/api/v1/agenda',agendaRoute)
+app.use('/api/v1/admin',adminRoute)
 
 const port = process.env.PORT || 5000
 
