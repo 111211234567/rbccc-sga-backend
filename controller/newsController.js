@@ -8,6 +8,23 @@ const getnews = async (req, res) => {
         path:'author'
     })
     res.status(StatusCodes.OK).json({ news: allNews })
+    
+}
+
+const testNews=async(req,res)=>{
+    try{
+        const pipline=[
+            { 
+                $group: { _id: '$_id', img: { $first: '$img' } }
+             }
+        ]
+        const data=await News.aggregate(pipline)
+        console.log(data)
+
+        res.json('sadasd')
+    }catch(e){
+        console.log(e)
+    }
 }
 
 const postNews = async (req, res) => {
@@ -50,4 +67,4 @@ const getOneNews=async (req,res)=>{
 
 
 
-export { postNews, getnews, deleteNews,editeNews,getOneNews }
+export { postNews, getnews, deleteNews,editeNews,getOneNews,testNews }

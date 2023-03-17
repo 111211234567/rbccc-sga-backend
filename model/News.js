@@ -16,7 +16,7 @@ const NewsSchema = new Schema({
         minlength: [20, "please provide more than 10 words"]
     },
     img: {
-        type: String,
+        type: [String],
         trim: true
     },
     date: {
